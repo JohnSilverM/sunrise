@@ -24,5 +24,8 @@
   },
   "devDependencies": {},
   "bundleDependencies": [],
-  "main": "server.js"
+  "main": "server.js",
+  "scripts": {
+    "test": "gulp travis"
+  }
 }
