@@ -43,7 +43,7 @@ var CLIENT_TESTS_BROWSERS = [
 var SAUCELABS_SETTINGS = {
     username:  'JohnSilver',
     accessKey: '415a2567-87fa-4d50-9e63-4561a038317a',
-    build:     'RCHP5',
+    build:     'RCHP3',
     tags:      ['test', 'sl'],
     browsers:  CLIENT_TESTS_BROWSERS,
     name:      'qunit browserJob tests',
