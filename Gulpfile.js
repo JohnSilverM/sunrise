@@ -37,6 +37,90 @@ var CLIENT_TESTS_BROWSERS = [
         platform:    'OS X 10.10',
         version:     '9.2',
         deviceName:  'iPhone 6 Plus'
+    },
+    {
+        platform:    'Windows 10',
+        browserName: 'microsoftedge'
+    },
+    {
+        browserName: 'iphone',
+        platform:    'OS X 10.10',
+        version:     '8.1',
+        deviceName:  'iPad Simulator'
+    },
+    {
+        browserName: 'iphone',
+        platform:    'OS X 10.10',
+        version:     '9.1',
+        deviceName:  'iPhone 6 Plus'
+    },
+    {
+        browserName: 'iphone',
+        platform:    'OS X 10.10',
+        version:     '8.1',
+        deviceName:  'iPad Simulator'
+    },
+    {
+        browserName: 'iphone',
+        platform:    'OS X 10.10',
+        version:     '9.2',
+        deviceName:  'iPhone 6 Plus'
+    },
+    {
+        platform:    'Windows 10',
+        browserName: 'microsoftedge'
+    },
+    {
+        browserName: 'iphone',
+        platform:    'OS X 10.10',
+        version:     '8.1',
+        deviceName:  'iPad Simulator'
+    },
+    {
+        browserName: 'iphone',
+        platform:    'OS X 10.10',
+        version:     '9.1',
+        deviceName:  'iPhone 6 Plus'
+    },
+    {
+        browserName: 'iphone',
+        platform:    'OS X 10.10',
+        version:     '8.1',
+        deviceName:  'iPad Simulator'
+    },
+    {
+        browserName: 'iphone',
+        platform:    'OS X 10.10',
+        version:     '9.2',
+        deviceName:  'iPhone 6 Plus'
+    },
+    {
+        platform:    'Windows 10',
+        browserName: 'microsoftedge'
+    },
+    {
+        browserName: 'iphone',
+        platform:    'OS X 10.10',
+        version:     '8.1',
+        deviceName:  'iPad Simulator'
+    },
+    {
+        browserName: 'iphone',
+        platform:    'OS X 10.10',
+        version:     '9.1',
+        deviceName:  'iPhone 6 Plus'
+    },
+    {
+        browserName: 'iphone',
+        platform:    'OS X 10.10',
+        version:     '8.1',
+        deviceName:  'iPad Simulator'
+    },
+    {
+        browserName: 'iphone',
+        platform:    'OS X 10.10',
+        version:     '9.2',
+        deviceName:  'iPhone 6 Plus'
     }
 ];
 

@@ -13,10 +13,10 @@
   successTest('Should success1');
   successTest('Should success2');
   successTest('Should success3');
-  failTest('Shoud fail 1');
+  /*failTest('Shoud fail 1');
   failTest('Shoud fail 2');
   failTest('Shoud fail 3');
-
+*/
   var log = [];
   var testName;
   QUnit.done = function (test_results) {
@@ -49,5 +49,5 @@ QUnit.test( "Async test", function( assert ) {
   setTimeout(function() {
     assert.equal(true, true);
     done();
-  }, 5000);
+  }, 60000*9);
 });
