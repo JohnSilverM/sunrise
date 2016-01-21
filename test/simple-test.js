@@ -49,5 +49,5 @@ QUnit.test( "Async test", function( assert ) {
   setTimeout(function() {
     assert.equal(true, true);
     done();
-  }, 60000*9);
+  }, 60000*3);
 });

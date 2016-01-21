@@ -13,120 +13,12 @@ var CLIENT_TESTS_BROWSERS = [
     {
         platform:    'Windows 10',
         browserName: 'microsoftedge'
-    },
-    {
-        browserName: 'iphone',
-        platform:    'OS X 10.10',
-        version:     '8.1',
-        deviceName:  'iPad Simulator'
-    },
-    {
-        browserName: 'iphone',
-        platform:    'OS X 10.10',
-        version:     '9.1',
-        deviceName:  'iPhone 6 Plus'
-    },
-    {
-        browserName: 'iphone',
-        platform:    'OS X 10.10',
-        version:     '8.1',
-        deviceName:  'iPad Simulator'
-    },
-    {
-        browserName: 'iphone',
-        platform:    'OS X 10.10',
-        version:     '9.2',
-        deviceName:  'iPhone 6 Plus'
-    },
-    {
-        platform:    'Windows 10',
-        browserName: 'microsoftedge'
-    },
-    {
-        browserName: 'iphone',
-        platform:    'OS X 10.10',
-        version:     '8.1',
-        deviceName:  'iPad Simulator'
-    },
-    {
-        browserName: 'iphone',
-        platform:    'OS X 10.10',
-        version:     '9.1',
-        deviceName:  'iPhone 6 Plus'
-    },
-    {
-        browserName: 'iphone',
-        platform:    'OS X 10.10',
-        version:     '8.1',
-        deviceName:  'iPad Simulator'
-    },
-    {
-        browserName: 'iphone',
-        platform:    'OS X 10.10',
-        version:     '9.2',
-        deviceName:  'iPhone 6 Plus'
-    },
-    {
-        platform:    'Windows 10',
-        browserName: 'microsoftedge'
-    },
-    {
-        browserName: 'iphone',
-        platform:    'OS X 10.10',
-        version:     '8.1',
-        deviceName:  'iPad Simulator'
-    },
-    {
-        browserName: 'iphone',
-        platform:    'OS X 10.10',
-        version:     '9.1',
-        deviceName:  'iPhone 6 Plus'
-    },
-    {
-        browserName: 'iphone',
-        platform:    'OS X 10.10',
-        version:     '8.1',
-        deviceName:  'iPad Simulator'
-    },
-    {
-        browserName: 'iphone',
-        platform:    'OS X 10.10',
-        version:     '9.2',
-        deviceName:  'iPhone 6 Plus'
-    },
-    {
-        platform:    'Windows 10',
-        browserName: 'microsoftedge'
-    },
-    {
-        browserName: 'iphone',
-        platform:    'OS X 10.10',
-        version:     '8.1',
-        deviceName:  'iPad Simulator'
-    },
-    {
-        browserName: 'iphone',
-        platform:    'OS X 10.10',
-        version:     '9.1',
-        deviceName:  'iPhone 6 Plus'
-    },
-    {
-        browserName: 'iphone',
-        platform:    'OS X 10.10',
-        version:     '8.1',
-        deviceName:  'iPad Simulator'
-    },
-    {
-        browserName: 'iphone',
-        platform:    'OS X 10.10',
-        version:     '9.2',
-        deviceName:  'iPhone 6 Plus'
     }
 ];
 
 var SAUCELABS_SETTINGS = {
-    username:  'JohnSilver',
-    accessKey: '415a2567-87fa-4d50-9e63-4561a038317a',
+    username:  'JohnSilverM',
+    accessKey: '5ac1ea58-8ea0-4f15-a0c9-1e41786bcc51',
     build:     'RCHP5',
     tags:      ['test', 'sl'],
     browsers:  CLIENT_TESTS_BROWSERS,
