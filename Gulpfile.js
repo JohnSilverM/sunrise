@@ -13,14 +13,68 @@ var CLIENT_TESTS_BROWSERS = [
     {
         platform:    'Windows 10',
         browserName: 'microsoftedge'
+    },
+    {
+        platform:    'Windows 10',
+        browserName: 'chrome'
+    },
+    {
+        browserName: 'chrome',
+        platform:    'OS X 10.11'
+    },
+    {
+        platform:    'Windows 10',
+        browserName: 'firefox'
+    },
+    {
+        browserName: 'firefox',
+        platform:    'OS X 10.11'
+    },
+    {
+        platform:    'Windows 10',
+        browserName: 'internet explorer',
+        version:     '11.0'
+    },
+    {
+        platform:    'Windows 8',
+        browserName: 'internet explorer',
+        version:     '10.0'
+    },
+    {
+        platform:    'Windows 7',
+        browserName: 'internet explorer',
+        version:     '9.0'
+    },
+    {
+        platform:    'Linux',
+        browserName: 'android',
+        version:     '5.1',
+        deviceName:  'Android Emulator'
+    },
+    {
+        browserName: 'safari',
+        platform:    'OS X 10.10',
+        version:     '8.0'
+    },
+    {
+        browserName: 'iphone',
+        platform:    'OS X 10.10',
+        version:     '8.1',
+        deviceName:  'iPad Simulator'
+    },
+    {
+        browserName: 'iphone',
+        platform:    'OS X 10.10',
+        version:     '9.1',
+        deviceName:  'iPhone 6 Plus'
     }
 ];
 
 var SAUCELABS_SETTINGS = {
     username:  'JohnSilverM',
     accessKey: '5ac1ea58-8ea0-4f15-a0c9-1e41786bcc51',
-    build:     'RCHP5',
-    tags:      ['test', 'sl'],
+    build:     process.env.TRAVIS_JOB_ID || '',
+    tags:      [process.env.TRAVIS_BRANCH || 'master'],
     browsers:  CLIENT_TESTS_BROWSERS,
     name:      'qunit browserJob tests',
     timeout:   720
