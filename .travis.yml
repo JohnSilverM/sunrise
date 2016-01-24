@@ -3,10 +3,6 @@ matrix:
  include:
   - node_js: "0.10"
     env: GULP_TASK="test-remote"
-  - node_js: "stable"
-    env: GULP_TASK="test-remote"
-  - node_js: "stable"
-    env: GULP_TASK="test-remote"
  fast_finish: true
 
 notifications:
