@@ -1,7 +1,7 @@
 language: node_js
 matrix:
  include:
-  - node_js: "0.10"
+  - node_js: "stable"
     env: GULP_TASK="test-remote"
  fast_finish: true
 

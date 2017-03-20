@@ -19,8 +19,9 @@
   "dependencies": {
     "express": "~3.4.4",
     "gulp": "^3.9.0",
-    "gulp-qunit-harness": "0.1.12",
-    "pinkie": "^2.0.1"
+    "pinkie": "^2.0.1",
+    "saucelabs-connector": "^0.2.1",
+    "testcafe": "^0.13.0"
   },
   "devDependencies": {},
   "bundleDependencies": [],
