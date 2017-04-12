@@ -1,64 +1,131 @@
-var gulp               = require('gulp');
-var SauceLabsConnector = require('saucelabs-connector');
+var babel   = require('gulp-babel');
+var eslint  = require('gulp-eslint');
+var gulp    = require('gulp');
+var del     = require('del');
+var Promise = require('pinkie');
+var os      = require('os');
 
-var browser = {
-    browserName: 'chrome',
-    platform:    'Windows 10',
-    version:     'beta'
+require('babel-polyfill');
+
+
+var config = {
+    1: [
+        {
+            os:        'android',
+            osVersion: '4.4',
+            browser:   'Android Browser',
+            device:    'Samsung Galaxy S5',
+            alias:     'android'
+        },
+        {
+            os:        'ios',
+            osVersion: '10.0',
+            browser:   'Mobile Safari',
+            device:    'iPad Pro (9.7 inch)',
+            alias:     'ipad'
+        },
+        {
+            os:        'ios',
+            osVersion: '10.0',
+            device:    'iPhone 7 Plus',
+            browser:   'Mobile Safari',
+            alias:     'iphone'
+        }],
+
+    2: [
+        {
+            os:        'OS X',
+            osVersion: 'Sierra',
+            name:      'safari',
+            version:   '10.0',
+            alias:     'safari'
+        },
+        {
+            os:        'OS X',
+            osVersion: 'Sierra',
+            name:      'chrome',
+            version:   '57.0',
+            alias:     'chrome-osx'
+        },
+        {
+            os:        'OS X',
+            osVersion: 'Sierra',
+            name:      'firefox',
+            version:   '52.0',
+            alias:     'firefox-osx'
+        },
+        {
+            os:        'Windows',
+            osVersion: '10',
+            name:      'edge',
+            version:   '13.0',
+            alias:     'edge',
+        }
+    ]
 };
 
-
-gulp.task('test-local', function () {
-    return gulp
-        .src('test/**/*-test.js')
-        .pipe(qunitHarness(CLIENT_TESTS_SETTINGS));
+gulp.task('clean', function () {
+    return del('lib');
 });
 
-gulp.task('test-remote', function () {
-    return new Promise(res => {
-        setTimeout(res, 20 * 60 * 1000);
-
-        var createTestCafe = require('testcafe');
-        var runner         = null;
-        var rc             = null;
-        var os             = require('os');
-
-        console.log(os.hostname());
-
-
-        createTestCafe(os.hostname(), 1337, 1338)
-            .then(tc => {
-                runner = tc.createRunner();
-
-                return tc.createBrowserConnection();
-            })
-            .then(remoteConnection => {
-                console.log(remoteConnection.url);
-
-                rc = remoteConnection;
-
-                var slConnector = new SauceLabsConnector('JohnSilverM', '5ac1ea58-8ea0-4f15-a0c9-1e41786bcc51');
-
-                return slConnector
-                    .connect()
-                    .then(function () {
-                        return slConnector.startBrowser(browser, 'example.com');
-                    })
-            })
-            .then(() => {
-                return runner
-                    .src('./test.js')
-                    .browsers([rc])
-                    .reporter('spec')
-                    .run();
-            })
-            .then(failedCount => {
-                console.log('failedCount', failedCount);
-            })
-            .catch(error => {
-                console.log('error', error);
-            });
-    });
+gulp.task('build', ['clean'], function () {
+    return gulp.src('src/**/*.js')
+        .pipe(babel())
+        .pipe(gulp.dest('lib/'));
 });
 
 gulp.task('travis', [process.env.GULP_TASK || '']);
+
+gulp.task('run1', ['build'], function () {
+    var Сonnector = require('./lib');
+    var connector = new Сonnector(process.env.user, process.env.key);
+    var site      = require('./site.js');
+
+    return connector
+        .connect()
+        .then(function () {
+            var url = 'http://' + os.hostname() + ':' + 5000 + '/redirect';
+
+            var openBrowserPromises = config['1'].map(function (browserInfo) {
+                return connector.startBrowser(browserInfo, url);
+            });
+
+            return Promise.all(openBrowserPromises);
+        })
+        .then(function (browsers) {
+            return new Promise(function (res) {
+                setTimeout(res, 9 * 60 * 1000);
+            });
+        });
+});
+
+gulp.task('run2', ['build'], function () {
+    var Сonnector = require('./lib');
+    var connector = new Сonnector(process.env.user, process.env.key);
+    var site      = require('./site.js');
+
+    return connector
+        .connect()
+        .then(function () {
+            var url = 'http://' + os.hostname() + ':' + 5000 + '/redirect';
+
+            var openBrowserPromises = config['2'].map(function (browserInfo) {
+                return connector.startBrowser(browserInfo, url);
+            });
+
+            return Promise.all(openBrowserPromises);
+        })
+        .then(function (browsers) {
+            return new Promise(function (res) {
+                setTimeout(res, 9 * 60 * 1000);
+            });
+        });
+});
+
+gulp.task('lint', function () {
+    return gulp
+        .src(['src/**/*.js', 'Gulpfile.js'])
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failOnError());
+});
