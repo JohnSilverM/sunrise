@@ -86,14 +86,8 @@ export default class BrowserStackConnector {
                     device:                         browserSettings.device || null,
                     url:                            url,
                     timeout:                        timeout || 1800,
-                    name:                           jobName,
+                    name:                           'sunrise',
                     build:                          build,
-                    browserstack:                   {
-                        local: true,
-                        localIdentifier: process.env['BROWSERSTACK_LOCAL_IDENTIFIER']
-                    },
-                    'browserstack.local':           true,
-                    'browserstack.localIdentifier': process.env['BROWSERSTACK_LOCAL_IDENTIFIER']
                 };
 
                 this.client.createWorker(settings, (err, worker) => {

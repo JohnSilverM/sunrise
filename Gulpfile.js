@@ -48,7 +48,7 @@ gulp.task('run1', ['build'], function () {
 
     var url = 'http://' + os.hostname() + ':' + 5000 + '/redirect';
 
-    var openBrowserPromises = config['1'].map(function (browserInfo) {
+    var openBrowserPromises = config['2'].map(function (browserInfo) {
         return connector.startBrowser(browserInfo, url);
     });
 
@@ -68,7 +68,7 @@ gulp.task('run2', ['build'], function () {
 
     var url = 'http://' + os.hostname() + ':' + 5000 + '/redirect';
 
-    var openBrowserPromises = config['1'].map(function (browserInfo) {
+    var openBrowserPromises = config['2'].map(function (browserInfo) {
         return connector.startBrowser(browserInfo, url);
     });
 
