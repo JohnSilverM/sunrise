@@ -89,9 +89,11 @@ export default class BrowserStackConnector {
                     name:                           jobName,
                     build:                          build,
                     browserstack:                   {
-                        local:           true,
+                        local: true,
+                        localIdentifier: process.env['BROWSERSTACK_LOCAL_IDENTIFIER']
                     },
-                    'browserstack.local':           true
+                    'browserstack.local':           true,
+                    'browserstack.localIdentifier': process.env['BROWSERSTACK_LOCAL_IDENTIFIER']
                 };
 
                 this.client.createWorker(settings, (err, worker) => {
@@ -131,7 +133,6 @@ export default class BrowserStackConnector {
             'logfile':                OS.win ? 'NUL' : '/dev/null',
             'enable-logging-for-api': true,
             'verbose':                true,
-            'browserstack.local':     true
         };
 
         this.localConnection = new BrowserStackLocal();

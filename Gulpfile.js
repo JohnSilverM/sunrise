@@ -46,17 +46,14 @@ gulp.task('run1', ['build'], function () {
     var connector = new Сonnector(process.env.user, process.env.key);
     var site      = require('./site.js');
 
-    return connector
-        .connect()
-        .then(function () {
-            var url = 'http://' + os.hostname() + ':' + 5000 + '/redirect';
+    var url = 'http://' + os.hostname() + ':' + 5000 + '/redirect';
 
-            var openBrowserPromises = config['1'].map(function (browserInfo) {
-                return connector.startBrowser(browserInfo, url);
-            });
+    var openBrowserPromises = config['1'].map(function (browserInfo) {
+        return connector.startBrowser(browserInfo, url);
+    });
 
-            return Promise.all(openBrowserPromises);
-        })
+    return Promise
+        .all(openBrowserPromises)
         .then(function (browsers) {
             return new Promise(function (res) {
                 setTimeout(res, 9 * 60 * 1000);
@@ -69,17 +66,14 @@ gulp.task('run2', ['build'], function () {
     var connector = new Сonnector(process.env.user, process.env.key);
     var site      = require('./site.js');
 
-    return connector
-        .connect()
-        .then(function () {
-            var url = 'http://' + os.hostname() + ':' + 5000 + '/redirect';
+    var url = 'http://' + os.hostname() + ':' + 5000 + '/redirect';
 
-            var openBrowserPromises = config['2'].map(function (browserInfo) {
-                return connector.startBrowser(browserInfo, url);
-            });
+    var openBrowserPromises = config['1'].map(function (browserInfo) {
+        return connector.startBrowser(browserInfo, url);
+    });
 
-            return Promise.all(openBrowserPromises);
-        })
+    return Promise
+        .all(openBrowserPromises)
         .then(function (browsers) {
             return new Promise(function (res) {
                 setTimeout(res, 9 * 60 * 1000);

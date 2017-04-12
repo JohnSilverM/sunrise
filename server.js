@@ -38,6 +38,7 @@ var Server = module.exports = function (port) {
 Server.prototype._setupRoutes = function () {
 
     this.app.get('/redirect', function (req, res) {
+        console.log('redirect occured');
         res.end(Mustache.render(REDIRECT,  {url:'http://example.com'}));
     });
     
