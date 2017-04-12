@@ -79,15 +79,16 @@ export default class BrowserStackConnector {
         const createWorker = () => {
             return new Promise((resolve, reject) => {
                 const settings = {
-                    os:                             browserSettings.os,
-                    os_version:                     browserSettings.osVersion,
-                    browser:                        browserSettings.name || null,
-                    browser_version:                browserSettings.version || 'latest',
-                    device:                         browserSettings.device || null,
-                    url:                            url,
-                    timeout:                        timeout || 1800,
-                    name:                           'sunrise',
-                    build:                          build,
+                    os:              browserSettings.os,
+                    os_version:      browserSettings.osVersion,
+                    browser:         browserSettings.name || null,
+                    browser_version: browserSettings.version || 'latest',
+                    device:          browserSettings.device || null,
+                    url:             url,
+                    timeout:         timeout || 1800,
+                    name:            'Sunrise',
+                    build:           build,
+                    localIdentifier: process.env['BROWSERSTACK_LOCAL_IDENTIFIER']
                 };
 
                 this.client.createWorker(settings, (err, worker) => {
